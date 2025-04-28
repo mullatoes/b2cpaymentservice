@@ -68,7 +68,7 @@ public class PaymentService {
             transaction.setStatus(PaymentStatus.FAILED);
             transaction.setFailureReason(e.getMessage());
             transactionRepository.save(transaction);
-            
+
             String smsMessage = String.format("B2C Payment of %s %s to %s failed. Reason: %s",
                     request.getCurrency(), request.getAmount(), request.getPhoneNumber(), e.getMessage());
             notificationService.sendNotification(request.getPhoneNumber(), smsMessage);
