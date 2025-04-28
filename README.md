@@ -25,7 +25,7 @@ integrated with mobile money platforms (e.g., M-Pesa, Airtel Money) and an SMS g
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/mullatoes/b2c-payment-service.git
+   git clone https://github.com/mullatoes/b2cpaymentservice.git
 
 2. Build the application
    ```With Maven (Locally):`
