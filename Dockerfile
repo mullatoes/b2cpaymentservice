@@ -1,13 +1,12 @@
-FROM openjdk:17-oracle
-
-WORKDIR /app
+FROM openjdk:17 AS builder
 
 COPY . .
-
 RUN ./mvnw clean install -DskipTests
 
-EXPOSE 8080
+FROM openjdk:17
 
-COPY target/*.jar /app/b2c-app.jar
+COPY --from=builder target/*.jar b2c_payment_service.jar
 
-ENTRYPOINT ["java", "-jar", "/app/b2c-app.jar"]
+EXPOSE 8081
+
+ENTRYPOINT ["java", "-jar", "/b2c_payment_service.jar"]
